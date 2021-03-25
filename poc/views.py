@@ -21,7 +21,7 @@ def login(request):
             return redirect('list')
         else:
             messages.error(request,'invalid credentials')
-            return redirect('home')
+            return redirect('login')
     else:
         return render(request,'login.html')
 
