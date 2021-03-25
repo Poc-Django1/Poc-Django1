@@ -34,6 +34,7 @@ def my_form(request):
                 obj = subjectdetails()
                 obj.subject = form.cleaned_data['subject']
                 obj.save()
+				messages.success(request,'Add Subject')                
                 return redirect('list')
         else:
             form = MyForm()
