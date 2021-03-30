@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>papers App</title>
+
+</head>
+<body style="background-image: linear-gradient(to right, #FFFFFF, rgb(255, 122, 89));
+">
+<br>
+{% block content %}
+<div class="card-columns">
+    {% for paper in paperlist %}
+    <div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">{{ paper.paper_name }}</h5>
+
+    <p class="card-text">{{ paper.id }}</p>
+
+    <center>
+        <a href="update/{{paper.id}}" class="btn btn-warning" id = '{{paper.name}}'>edit</a>
+        <a href="delete/{{paper.id}}" class="btn btn-danger" id = '{{paper.name}}'>delete</a>
+     </center>
+    </div>
+  </div>
+</div>
+    {% endfor %}
+</div>
+{% endblock %}
+</body>
+</html>
