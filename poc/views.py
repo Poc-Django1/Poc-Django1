@@ -17,7 +17,6 @@ def login(request):
 
         if user is not None:
             auth.login(request, user)
-            messages.success(request,'Successfully logged in')
             return redirect('list')
         else:
             messages.error(request,'invalid credentials')
@@ -33,8 +32,7 @@ def my_form(request):
             if form.is_valid():
                 obj = subjectdetails()
                 obj.subject = form.cleaned_data['subject']
-                obj.save()
-                messages.success(request,'Add Subject')                
+                obj.save()               
                 return redirect('list')
         else:
             form = MyForm()
