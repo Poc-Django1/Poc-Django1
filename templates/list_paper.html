@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<html>
+<head>
+    <title>papers App</title>
+
+    <style>
+    table {
+      width:100%;
+    }
+    table, th, td {
+      border:1px solid black;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 15px;
+      text-align: left;
+    }
+    #t01 tr:nth-child(even) {
+      background-color: #eee;
+    }
+    #t01 tr:nth-child(odd) {
+     background-color: #fff;
+    }
+    #t01 th {
+      background-color: black;
+      color: black;
+    }
+
+  </style>
+</head>
+<body >
+    <center>
+  <h2>Paper Lists</h2>
+
+<table class = 'w-50 table table-light' style="border-radius:10px;background-color:#FFFF99;">
+<div class="paper-list">
+    <tr>
+      <th>PaperName</th>
+      <th>SubjectName</th>
+      <th>Action</th>
+    </tr>
+    <tr>
+      {% for paper in paperlist %}
+      <div class="paper">
+        <td>{{ paper.paper_name }}</td>
+        <td>{{ paper.subject_id }}</td>
+        <td>
+        <a href="update/{{paper.id}}" class="btn btn-warning" id = '{{paper.name}}'>edit</a>
+        <a href="delete/{{paper.id}}" class="btn btn-danger" id = '{{paper.name}}'>delete</a>
+        </td>
+    </tr>
+
+
+  </div>
+  {% endfor %}
+    </table>
+  </center>
+  <center>
+  <a href="/papers/add_paper"  class="btn btn-primary">Add Paper</a>
+  <a href="/papers/list_paper"  class="btn btn-primary">List Paper</a>
+  </center>
+</div>
+</body>
+</html>
+{% endblock %}
