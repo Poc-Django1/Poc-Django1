@@ -1,22 +1,7 @@
-<!DOCTYPE html>
-<!doctype html>
-<html>
-<head>
-<title>Paper</title>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-<body style="background-image: linear-gradient(to right, #FFFFFF, rgb(255, 122, 89));
-">
-
+{% extends "layout.html" %}
+{% block content %}
 {% load static %}
-<link rel="stylesheet" href="/static/main.css" type="text/css" media="screen" >
-
-
-
-  {% block content %}
-  <h1>Please add paper to proceed</h1>
+  <h3>Please add paper to proceed</h3>
 
   {% if submitted %}
     <p class="success">
@@ -41,9 +26,6 @@
  {% endif %}
  {% endif %}
 
- {% endblock content %}
-
-
  <aside id="rightsidebar">
    <nav id="nav">
      <ul>
@@ -52,6 +34,4 @@
    </nav>
  </aside>
 
-
-</body>
-</html>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+{% block content %}
+      {% for message in messages %}
+        <div class="container-fluid p-0">
+         <div class="alert {{ message.tags }} alert-dismissible" role="alert" >
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+            {{ message }}
+         </div>
+        </div>
+      {% endfor %}
+     <form action = "{% url 'login' %}" 
+         method = "POST" >{% csrf_token %}
+         
+         <div style = "max-width:470px;">
+            <center> 
+               <input type = "text" style = "margin-left:20%;" 
+                  placeholder = "Username" name = "username" />
+            </center>
+         </div>
+			
+         <br>
+         
+         <div style = "max-width:470px;">
+            <center>
+               <input type = "password" style = "margin-left:20%;" 
+                  placeholder = "password" name = "password" />
+            </center>
+         </div>
+			
+         <br>
+         
+         <div style = "max-width:470px;">
+            <center> 
+            
+               <button style = "border:0px; background-color:#4285F4; margin-top:8%;
+                  height:35px; width:80%;margin-left:19%;" type = "submit" 
+                  value = "Login" >
+                  <strong>Login</strong>
+               </button>
+               
+            </center>
+         </div>
+         
+     </form>
+      
+{% endblock %}

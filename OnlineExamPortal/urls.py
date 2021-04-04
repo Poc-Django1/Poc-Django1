@@ -19,15 +19,20 @@ from django.conf import settings
 from django.conf.urls.static import static
 import Paper.api_views
 import Paper.views
-
+from poc import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('papers/', Paper.api_views.PapersList.as_view(),),
-    path('papers/new',Paper.api_views.PapersCreate.as_view()),
-    path('papers/<int:id>/', Paper.api_views.PapersRetrieveUpdateDestroy.as_view()),
-    path('api/', include('Paper.urls')),
-    path('paper', Paper.views.paper, name='paper'),
+#    path('papers/', Paper.api_views.PapersList.as_view(),),
+#    path('papers/new',Paper.api_views.PapersCreate.as_view()),
+#    path('papers/<int:id>/', Paper.api_views.PapersRetrieveUpdateDestroy.as_view()),
+#    path('api/', include('Paper.urls')),
+#    path('paper', Paper.views.paper, name='paper'),
+    path('paper/', include('Paper.urls')),
     path('qna/', include('qna.urls')),
     path('', include('qna.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('login/', views.login, name = 'login'),
+    path('forms/', views.my_form, name = 'forms'),
+    path('list/', views.index, name = 'list'),
 ]

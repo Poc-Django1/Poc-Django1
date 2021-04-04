@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'qna.apps.QnaConfig',
     'Paper.apps.PaperConfig',
+    'poc.apps.AppConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

@@ -1,15 +1,6 @@
-<!DOCTYPE html>
-<!doctype html>
-<html>
-<head>
-<title>Paper</title>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-<body style="background-image: linear-gradient(to right, #FFFFFF, rgb(255, 122, 89));
-">
-  <h1>Please Enter Test Paper Details: </h1>
+{% extends "layout.html" %}
+{% block content %}
+<h1>Please Enter Test Paper Details: </h1>
 <form action="" method="post" target="_blank">
 
   {% csrf_token %}
@@ -31,5 +22,4 @@
 </form>
 
   <p>Click on the submit button to save details.</p>
-</body>
-</html>
+{% endblock %}

@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-{% load static %}
-<html>
-<head>
-    <title>papers App</title>
-
-</head>
-<body style="background-image: linear-gradient(to right, #FFFFFF, rgb(255, 122, 89));
-">
-<br>
+{% extends "layout.html" %}
 {% block content %}
 <div class="card-columns">
     {% for paper in paperlist %}
@@ -27,5 +18,3 @@
     {% endfor %}
 </div>
 {% endblock %}
-</body>
-</html>
