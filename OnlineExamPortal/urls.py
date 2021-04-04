@@ -27,7 +27,7 @@ urlpatterns = [
     path('papers/new',Paper.api_views.PapersCreate.as_view()),
     path('papers/<int:id>/', Paper.api_views.PapersRetrieveUpdateDestroy.as_view()),
     path('api/', include('Paper.urls')),
-    path('paper', Paper.views.paper, name='paper')
-
-
+    path('paper', Paper.views.paper, name='paper'),
+    path('qna/', include('qna.urls')),
+    path('', include('qna.urls')),
 ]
