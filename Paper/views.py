@@ -75,10 +75,13 @@ def delete_paper(request, id):
     try:
         paper_sel = Papers.objects.get(id = paper_id)
         #paper_sel.delete()
-    except Papers.DoesNotExist:
+    #except Papers.DoesNotExist:
+    except Exception as e:
+        print (e)
         return render(request, 'list_paper.html', {'paperlist': paperlist})
 
     paper_sel.delete()
+    print (e)
     return HttpResponseRedirect('?deleted=True')
     if 'deleted' in request.GET:
         deleted = True
