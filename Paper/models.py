@@ -18,7 +18,7 @@ class Papers(models.Model):
 
     id = models.AutoField(primary_key=True)
     paper_name = models.CharField(max_length=100)
-    subject_id = models.ForeignKey(subjectdetails, on_delete=models.PROTECT,verbose_name='Subject')
+    subject_id = models.ForeignKey(subjectdetails, on_delete=models.PROTECT,verbose_name='Subject', db_column='subject_id')
     paper_desc = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
