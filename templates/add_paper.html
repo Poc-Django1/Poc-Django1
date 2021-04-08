@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<html>
+<head>
+<title>Paper</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+{% load static %}
+<link rel="stylesheet" href="/static/main.css" type="text/css" media="screen" >
+
+
+
+
+  {% if submitted %}
+    <p class="success">
+     Your paper was submitted successfully. Thank you.
+   </p>
+ {% else %}
+
+{% if deleted %}
+  <p class="success">
+   Your paper is deleted successfully.
+ </p>
+{% else %}
+{% if updated %}
+  <p class="success">
+   Your paper is updated successfully.
+ </p>
+{% else %}
+  <center>
+    <h1 class="display-5" style="color:#000000;">Add Paper</h1>
+
+   <form action="" method="post" novalidate>
+     <table class = 'w-50 table table-light' style="border-radius:10px;background-color:#FFFF99;">
+     {{ form.as_table }}
+     <tr>
+       <td>&nbsp;</td>
+       <td><input type="submit" value="Submit"></td>
+     </tr>
+   </table>
+   {% csrf_token %}
+   </form>
+
+ {% endif %}
+ {% endif %}
+ {% endif %}
+
+</center>
+ <center>
+ <a href="/papers/add_paper"  class="btn btn-primary">Add Paper</a>
+ <a href="/papers/list_paper"  class="btn btn-primary">List Paper</a>
+ </center>
+
+ {% endblock content %}
+
+
+ <aside id="rightsidebar">
+   <nav id="nav">
+     <ul>
+       <li><a href="/papers/add_paper">Add Paper</a></li>
+     </ul>
+   </nav>
+ </aside>
+
+
+</body>
+</html>

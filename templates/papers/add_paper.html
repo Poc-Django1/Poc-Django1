@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!doctype html>
+<html>
+<head>
+<title>Paper</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body style="background-image: linear-gradient(to right, #FFFFFF, rgb(255, 122, 89));
+">
+
+{% load static %}
+<link rel="stylesheet" href="/static/main.css" type="text/css" media="screen" >
+
+
+
+  {% block content %}
+  <h1>Please add paper to proceed</h1>
+
+  {% if submitted %}
+    <p class="success">
+     Your paper was submitted successfully. Thank you.
+   </p>
+ {% else %}
+ {% if updated %}
+   <p class="success">
+    Your paper is updated successfully.
+  </p>
+{% else %}
+   <form action="" method="post" novalidate>
+   <table>
+     {{ form.as_table }}
+     <tr>
+       <td>&nbsp;</td>
+       <td><input type="submit" value="Submit"></td>
+     </tr>
+   </table>
+   {% csrf_token %}
+   </form>
+ {% endif %}
+ {% endif %}
+
+ {% endblock content %}
+
+
+ <aside id="rightsidebar">
+   <nav id="nav">
+     <ul>
+       <li><a href="/api/add_paper">Add Paper</a></li>
+     </ul>
+   </nav>
+ </aside>
+
+
+</body>
+</html>
