@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 col-md-offset-3 text-center" style="margin-top:10px;">
+            <form method="POST" class="post-form" action="/qna/update/{{qnas.id}}">
+                    {% csrf_token %}
+                <div class="container">
+                <div class="form-group row">
+                <label class="col-sm-1 col-form-label"></label>
+                <div class="col-sm-4">
+                <h3>Update Details</h3>
+                </div>
+              </div>
+                <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Paper Id:</label>
+                <div class="col-sm-4">
+                    <input type="hidden" name="paper_id" id="paper_id" required maxlength="20" value="{{ qnas.paper_id_id }}"/>
+                    <input type="text" name="paper_id_id" id="paper_id_id" style="width: 100%;" required maxlength="20" value="{{ qnas.paper_id }}" disabled/>
+                </div>
+              </div>
+                <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Question Id:</label>
+                <div class="col-sm-4">
+                    <input type="text" name="id" id="id" required maxlength="20" style="width: 100%;" value="{{ qnas.id }}" disabled/>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Question:</label>
+                <div class="col-sm-4">
+                    <textarea name="question" cols="40" rows="10" required="" id="id_question">{{ qnas.question }}</textarea>
+                </div>
+              </div>
+                <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Option 1:</label>
+                <div class="col-sm-4">
+                   <textarea name="option1" cols="40" rows="10" required="" id="id_option1">{{ qnas.option1 }}</textarea>
+                </div>
+              </div>
+                <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Option 2:</label>
+                <div class="col-sm-4">
+                    <textarea name="option2" cols="40" rows="10" required="" id="id_option2">{{ qnas.option2 }}</textarea>
+                </div>
+              </div>
+                <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Option 3:</label>
+                <div class="col-sm-4">
+                    <textarea name="option3" cols="40" rows="10" required="" id="id_option3">{{ qnas.option3 }}</textarea>
+                </div>
+              </div>
+                <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Option 4:</label>
+                <div class="col-sm-4">
+                    <textarea name="option4" cols="40" rows="10" required="" id="id_option4">{{ qnas.option4 }}</textarea>
+                </div>
+              </div>
+                <div class="form-group row">
+                <label class="col-sm-1 col-form-label"></label>
+                <div class="col-sm-4">
+                <button type="submit" class="btn btn-success">Update</button>
+                </div>
+              </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
