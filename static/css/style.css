@@ -1,0 +1,30 @@
+.table .thead-dark th{
+    border: 27px silver;
+    color: #007BC2;
+    background-color: white;
+}
+
+.page-header{
+    padding-left:15px;
+    padding-top:25px;
+    padding-bottom:15px;
+    padding-right:40px;
+    background-color: white;
+    border:1px solid silver;
+    color: #007BC2;
+}
+
+.custom-bold-text{
+    font-weight: bold;
+    font-size: 120%;
+}
+
+.sign-up-btn{
+    float:right;
+    margin-right:10px;
+}
+
+.login-btn{
+    float:right;
+    margin-right:20px;
+}

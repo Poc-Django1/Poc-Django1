@@ -43,11 +43,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Paper.apps.PaperConfig',
+    # 'Paper.apps.PaperConfig',
     'rest_framework',
     'django_filters',
     'curriculum',
-    'users'
+    'users',
+    'qna'
 ]
 
 MIDDLEWARE = [
