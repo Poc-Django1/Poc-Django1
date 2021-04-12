@@ -17,8 +17,8 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-# import Paper.api_views
-# import Paper.views
+import Paper.api_views
+import Paper.views
 import curriculum.views
 import users.views
 
@@ -26,8 +26,8 @@ import users.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('papers/', include('Paper.urls')),
-    # path('paper', Paper.views.paper, name='paper'),
+    path('papers/', include('Paper.urls')),
+    path('paper', Paper.views.paper, name='paper'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('login/', curriculum.views.login, name = 'login'),
     path('forms/', curriculum.views.my_form, name = 'forms'),
