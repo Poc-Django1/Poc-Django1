@@ -47,7 +47,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'django_filters',
     'curriculum',
-    'users'
+    'users',
+    'qna'
 ]
 
 MIDDLEWARE = [
