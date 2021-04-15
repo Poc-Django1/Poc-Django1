@@ -3,7 +3,9 @@ from django.views import generic
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login
 from .forms import CustomRegistrationForm
-
+from .sqs_queue import *
+from django.core.mail import send_mail
+from django.conf import settings
 
 def home(request):
 
