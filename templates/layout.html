@@ -14,8 +14,12 @@
         <img src="{% static "images/logo.svg" %}" alt="My image"/>
     </div>
     <div class="col-md-3 col-md-offset-9">
-        <a href="/accounts/login/?next=/forms"><span class="label label-primary custom-bold-text sign-up-btn"> Sign-up</span></a>
-        <a href="/login"> <span class="label label-primary custom-bold-text login-btn"> Login</span></a>
+        <a href="{% url 'signup' %}"><span class="label label-primary custom-bold-text sign-up-btn"> Sign-up</span></a>
+        {% if user.is_authenticated %}
+            <a href="{% url 'logout' %}"><span class="label label-primary custom-bold-text login-btn">Log Out</span></a>
+        {% else %}
+            <a href="/login"> <span class="label label-primary custom-bold-text login-btn"> Login</span></a>
+        {% endif %} 
         <a href="/qna"><span class="label label-primary custom-bold-text sign-up-btn"> QnA</span></a>
         <a href="/papers/list_paper"> <span class="label label-primary custom-bold-text login-btn"> Papers</span></a>
         <a href="/papers/add_paper"> <span class="label label-primary custom-bold-text login-btn">Add Papers</span></a>

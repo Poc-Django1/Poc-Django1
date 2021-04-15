@@ -31,9 +31,16 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-LOGIN_URL='home'
-LOGIN_REDIRECT_URL = 'home'
+LOGIN_URL='welcome'
+LOGIN_REDIRECT_URL = 'welcome'
 LOGOUT_REDIRECT_URL = 'home'
+
+LOGIN_REQUIRED_IGNORE_VIEW_NAMES = [
+    'home',
+    'login',
+    'signup',
+    'welcome'
+]
 # Application definition
 
 INSTALLED_APPS = [
@@ -57,6 +64,7 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'login_required.middleware.LoginRequiredMiddleware',        
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
@@ -141,3 +149,9 @@ STATICFILES_DIRS = [
 ]
 
 #STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = '*****@gmail.com'
+EMAIL_HOST_PASSWORD = '****'
