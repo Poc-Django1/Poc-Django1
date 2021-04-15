@@ -9,7 +9,7 @@ from django.conf import settings
 
 def home(request):
 
-    return render(request, 'home.html', {"context": "POC HomePage"})
+    return render(request, 'layout.html', {"context": "POC HomePage"})
 
 def welcome(request):
     return render(request, 'welcome.html')
@@ -38,7 +38,8 @@ class SignUp(generic.CreateView):
 
     def form_valid(self, form):
         valid = super(SignUp, self).form_valid(form)
-        username, password, email = form.cleaned_data.get('username'), form.cleaned_data.get('password1'), form.cleaned_data.get('email')         new_user = authenticate(username=username, password=password)
+        username, password, email = form.cleaned_data.get('username'), form.cleaned_data.get('password1'), form.cleaned_data.get('email') 
+        new_user = authenticate(username=username, password=password)
         sqs_queue(str(username),str(email)) 
         login(self.request, new_user)
         return valid
