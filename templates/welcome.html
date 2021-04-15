@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+{% block content %}
+{% if user.is_authenticated %}
+    <p>Welcome, {{ user.get_username }}. Thanks for logging in.</p>
+    <h2> Welcome to Online Exam Portal</h2>
+    <center><a href="/list" class="btn btn-primary">subject list</a></center>
+{% else %}
+    <h2> Welcome to Online Exam Portal</h2>
+    <p>Please log in To take test.</p>
+    <div>   
+        <a href="/login/"class="btn btn-primary">Log in</a>
+        <p> Signup for new user </p>
+        <a href="{% url 'signup' %}"class="btn btn-primary">signup</a>
+    </div>
+{% endif %}
+{% endblock %}

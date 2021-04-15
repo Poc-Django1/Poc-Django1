@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Capgemini</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+    <script src="{%static 'js/jquery.js' %}"></script>
+</head>
+<body>
+<div class="row page-header" id="header">
+    <div class="col-md-9 col-md-offset-9">
+        <img src="{% static "images/logo.svg" %}" alt="My image"/>
+    </div>
+    <div class="col-md-3 col-md-offset-9">
+        <a href="{% url 'signup' %}"><span class="label label-primary custom-bold-text sign-up-btn"> Sign-up</span></a>
+        {% if user.is_authenticated %}
+            <a href="{% url 'logout' %}"><span class="label label-primary custom-bold-text login-btn">Log Out</span></a>
+        {% else %}
+            <a href="/login"> <span class="label label-primary custom-bold-text login-btn"> Login</span></a>
+        {% endif %}   
+        <a href="/qna"><span class="label label-primary custom-bold-text sign-up-btn"> QnA</span></a>
+        <a href="/papers/list_paper"> <span class="label label-primary custom-bold-text login-btn"> Papers</span></a>
+        <a href="/papers/add_paper"> <span class="label label-primary custom-bold-text login-btn">Add Papers</span></a>
+        <a href="/list"><span class="label label-primary custom-bold-text sign-up-btn"> subject list</span></a>
+    </div>
+
+</div>
+{% block content %}Content section comes here{% endblock %}
+</body>
+</html>

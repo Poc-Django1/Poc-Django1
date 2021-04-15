@@ -38,6 +38,7 @@ urlpatterns = [
     path('', users.views.home, name='home'),
     path('auth/', include('django.contrib.auth.urls')),
     path('auth/signup', users.views.SignUp.as_view(), name='signup'),
-
+    path('qna/', include('qna.urls')),
+    path('welcome', users.views.welcome, name='welcome'),
 
 ]

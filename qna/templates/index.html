@@ -1,0 +1,38 @@
+
+{% extends "layout.html" %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-9 col-md-offset-3 text-center" style="margin-top:10px;">
+            <form action="/qna/addqna" method="post">
+                {% csrf_token %}
+              <div class="form-group">
+                <label for="id_paper_id">Paper Id:</label>
+                 {{ form.paper_id }}
+              </div>
+              <div class="form-group">
+                <label for="id_question">Question:</label>
+                 {{ form.question }}
+              </div>
+              <div class="form-group">
+                <label for="id_option1">Option 1:</label>
+                 {{ form.option1 }}
+              </div>
+              <div class="form-group">
+                <label for="id_option1">Option 2:</label>
+                 {{ form.option2 }}
+              </div>
+              <div class="form-group">
+                <label for="id_option1">Option 3:</label>
+                 {{ form.option3 }}
+              </div>
+              <div class="form-group">
+                <label for="id_option1">Option 4:</label>
+                 {{ form.option4 }}
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

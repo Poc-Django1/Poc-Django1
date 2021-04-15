@@ -3,10 +3,9 @@ from django.contrib.auth.models import User, auth
 from .forms import MyForm
 from .models import subjectdetails
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
 
 def home(request):
-    return render(request, 'home.html', {"context": "POC HomePage"})
+    return render(request, 'layout.html', {"context": "POC HomePage"})
 
 def login(request):
     if request.method== 'POST':
@@ -24,7 +23,6 @@ def login(request):
     else:
         return render(request,'login.html')
 
-@login_required
 def my_form(request):
     if request.user.is_authenticated:
         if request.method == "POST":
@@ -38,7 +36,6 @@ def my_form(request):
             form = MyForm()
             return render(request, 'subject.html', {'form': form})
 
-@login_required
 def index(request):
     if request.user.is_authenticated:
       context = {
@@ -46,12 +43,10 @@ def index(request):
       }
       return render(request, 'subject_list.html', context)
 
-@login_required
 def edit(request, id):
     subject = subjectdetails.objects.get(id=id)
     return render(request,'edit.html', {'subject':subject})
 
-@login_required
 def update(request, id):
     subject = subjectdetails.objects.get(id=id)
     form = MyForm(request.POST, instance = subject)
@@ -60,7 +55,6 @@ def update(request, id):
         return redirect("list")
     return render(request, 'edit.html', {'subject': subject})
 
-@login_required
 def destroy(request, id):
     subject = subjectdetails.objects.get(id=id)
     subject.delete()
