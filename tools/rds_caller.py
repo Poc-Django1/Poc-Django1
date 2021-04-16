@@ -18,5 +18,5 @@ def delete_db(name):
     print('done')
 
 if __name__ == "__main__":
-    # delete_db('paper')
+    delete_db('paper')
     create_db('paper')

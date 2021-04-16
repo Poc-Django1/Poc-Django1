@@ -13,18 +13,18 @@ class Subject(models.Model):
     def __str__(self):
         return self.subjectname
 '''
+from Paper.models import Papers
 
-
-class Papers(models.Model):
-
-    id = models.AutoField(primary_key=True)
-    paper_name = models.CharField(max_length=100)
-    subject_id = models.IntegerField()
-    paper_desc = models.TextField()
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-    def __str__(self):
-        return self.paper_name
+# class Papers(models.Model):
+#
+#     id = models.AutoField(primary_key=True)
+#     paper_name = models.CharField(max_length=100)
+#     subject_id = models.IntegerField()
+#     paper_desc = models.TextField()
+#     created_at = models.DateTimeField(auto_now_add=True)
+#     updated_at = models.DateTimeField(auto_now=True)
+#     def __str__(self):
+#         return self.paper_name
 
 
 class Questionanswers(models.Model):

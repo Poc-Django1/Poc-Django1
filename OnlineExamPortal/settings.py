@@ -87,9 +87,10 @@ WSGI_APPLICATION = 'OnlineExamPortal.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-
 DATABASES = {
     'default': {
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': 'paper.sqlite',
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'paper',
         'HOST': 'poc-django-1.ca0pjd0qiibp.ap-south-1.rds.amazonaws.com',
